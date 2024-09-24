@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant é Melhor que CS2?</title>
+    <style>
+        body {
+            background-color: black;
+            background-image: url('https://wallpaperaccess.com/full/3478771.jpg'), url('https://wallpapercave.com/wp/wp10604197.jpg'); /* Imagens de fundo: Valorant e CS2 */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding-top: 150px;
+            margin: 0;
+            cursor: url('https://www.pngfind.com/pngs/m/617-6171424_crosshair-png-download-csgo-transparent-png.png'), auto; /* Cursor de mira personalizado */
+        }
+        h1 {
+            color: white;
+            font-size: 36px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .buttons {
+            margin-top: 30px;
+        }
+        button {
+            font-size: 18px;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #yesButton {
+            background-color: lightgreen;
+            color: black;
+        }
+        #noButton {
+            background-color: red;
+            color: white;
+        }
+        #steamLink {
+            margin-top: 20px;
+            display: none;
+            font-size: 18px;
+            color: white;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const yesButton = document.getElementById('yesButton');
+            const noButton = document.getElementById('noButton');
+            const steamLink = document.getElementById('steamLink');
+            
+            // Som de tiro
+            const shotSound = new Audio('https://freesound.org/data/previews/341/341605_6247590-lq.mp3'); // URL do som de tiro
+            shotSound.preload = 'auto';  // Preload do som
+
+            // Adicionar som de tiro ao clicar em qualquer parte da página
+            document.body.addEventListener('click', function() {
+                shotSound.currentTime = 0;  // Reiniciar som a cada clique
+                shotSound.play();  // Tocar som de tiro
+            });
+
+            // Para o desktop (fugir com o mouse)
+            yesButton.addEventListener('mouseover', function() {
+                const x = Math.random() * (window.innerWidth - yesButton.offsetWidth);
+                const y = Math.random() * (window.innerHeight - yesButton.offsetHeight);
+                yesButton.style.position = 'absolute';
+                yesButton.style.left = `${x}px`;
+                yesButton.style.top = `${y}px`;
+            });
+
+            // Para dispositivos móveis (fugir com o toque)
+            yesButton.addEventListener('touchstart', function() {
+                const x = Math.random() * (window.innerWidth - yesButton.offsetWidth);
+                const y = Math.random() * (window.innerHeight - yesButton.offsetHeight);
+                yesButton.style.position = 'absolute';
+                yesButton.style.left = `${x}px`;
+                yesButton.style.top = `${y}px`;
+            });
+
+            // Clique no botão "Não"
+            noButton.addEventListener('click', function() {
+                alert('Isso já era óbvio, não?');
+                setTimeout(function() {
+                    const playCs2 = confirm("Quer jogar CS2?");
+                    if (playCs2) {
+                        window.open('https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/', '_blank');
+                    }
+                }, 500);
+            });
+
+            // Clique no botão "Sim"
+            yesButton.addEventListener('click', function() {
+                // Exibir link do perfil Steam
+                steamLink.style.display = 'block';
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Valorant é Melhor que CS2?</h1>
+    <div class="buttons">
+        <button id="yesButton">Sim</button>
+        <button id="noButton">Não</button>
+    </div>
+    <div id="steamLink">
+        <p>Quer jogar CS2 comigo? <a href="https://steamcommunity.com/id/seu-nome-de-usuário" target="_blank" style="color: lightblue;">Clique aqui para ver meu perfil na Steam</a>.</p>
+    </div>
+</body>
+</html>
